@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { WeatherContext } from "../Context/WeatherProvider";
 import Navbar from "../Components/Navbar/Navbar";
 import CurrentCondition from "../Components/CurrentCondition/CurrentCondition";
+import HourlyForecast from "../Components/HourlyForcast/HourlyForecast";
 
 const Home = () => {
   const { text } = useContext(WeatherContext);
@@ -13,8 +14,9 @@ const Home = () => {
         <Navbar />
         <div className="mt-4">
           <div className="grid lg:grid-cols-7 grid-cols-1 gap-5">
-            <div className="col-span-4">
+            <div className="col-span-4 space-y-5">
               <CurrentCondition />
+              <HourlyForecast/>
             </div>
             <div className="col-span-3"></div>
           </div>
