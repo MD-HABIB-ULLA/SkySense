@@ -4,7 +4,7 @@ import wind from "/wind.svg";
 import prasure from "/prasure.svg";
 const TodayStatus = () => {
   return (
-    <div className="bg-gradient-to-t  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] px-3 pt-3 text-white rounded-2xl">
+    <div className="bg-gradient-to-t  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] p-3  text-white rounded-2xl">
       <h1 className="text-xl ">Today Highlight</h1>
       <div className="grid grid-cols-2 grid-rows-2 gap-2 mt-3">
         <div className="bg-white/5 p-3 rounded-lg">
@@ -54,9 +54,7 @@ const TodayStatus = () => {
           </div>
         </div>
 
-        <div></div>
-        <div></div>
-        <div></div>
+    
       </div>
     </div>
   );

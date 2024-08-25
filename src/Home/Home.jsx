@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import CurrentCondition from "../Components/CurrentCondition/CurrentCondition";
 import HourlyForecast from "../Components/HourlyForcast/HourlyForecast";
 import TodayStatus from "../Components/TodayStatus/TodayStatus";
+import DaysForecast from "../Components/DaysForecast/DaysForecast";
 
 const Home = () => {
   const { text } = useContext(WeatherContext);
@@ -15,12 +16,13 @@ const Home = () => {
         <Navbar />
         <div className="mt-4">
           <div className="grid lg:grid-cols-7 grid-cols-1 gap-5">
-            <div className="lg:first:col-span-4 space-y-5">
+            <div className="lg:first:col-span-4 flex justify-between gap-5 flex-col h-full">
               <CurrentCondition />
               <HourlyForecast />
             </div>
-            <div className="lg:col-span-3  ">
+            <div className="lg:col-span-3 space-y-3 ">
               <TodayStatus />
+              <DaysForecast/>
             </div>
           </div>
         </div>
