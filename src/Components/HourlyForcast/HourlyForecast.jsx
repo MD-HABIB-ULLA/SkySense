@@ -45,7 +45,8 @@ const HourlyForecast = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gradient-to-t  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] p-3 text-white rounded-2xl flex flex-col justify-between">
+        <div className="bg-gradient-to-t  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] p-3 text-white rounded-2xl 
+        flex flex-col justify-between">
           <div className="space-y-1">
             <p className="text-white/40 text-base">Sunrise</p>
             <h1 className="text-3xl text-white">
