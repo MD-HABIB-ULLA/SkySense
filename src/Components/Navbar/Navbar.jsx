@@ -1,17 +1,46 @@
 import { Link } from "react-router-dom";
 import icon from "/icon.svg";
 import { IoLocationSharp } from "react-icons/io5";
+import { useContext } from "react";
+import { WeatherContext } from "../../Context/WeatherProvider";
+
 const Navbar = () => {
+  const { searchText, setSearchText, setCurrentLocation } =
+    useContext(WeatherContext);
+
   const handelForm = (e) => {
     e.preventDefault();
     const searchText = e.target.search.value;
-    console.log(searchText);
+    setSearchText(searchText);
+    setCurrentLocation("");
+    // Reset the input field
   };
+
+  function getFormattedLocation() {
+    setSearchText("");
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const latitude = position.coords.latitude.toFixed(4); // Adjust the precision as needed
+          const longitude = position.coords.longitude.toFixed(4); // Adjust the precision as needed
+
+          const formattedLocation = `${latitude},${longitude}`;
+          setCurrentLocation(formattedLocation);
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }
+
   return (
-    <div className="flex gap-5 ">
+    <div className="flex gap-5">
       <div>
         <Link to={"/"} className="py-4 flex gap-2">
-          <img src={icon} alt="" />
+          <img src={icon} alt="Sky Sense" />
           <div className="text-2xl text-[#fff]">
             <span
               style={{
@@ -27,21 +56,20 @@ const Navbar = () => {
           </div>
         </Link>
       </div>
-      <div className="flex-1  my-auto  ">
+      <div className="flex-1 my-auto">
         <form onSubmit={handelForm}>
-          <div className="relative  ">
+          <div className="relative">
             <input
               name="search"
-              className="block w-full  px-3 py-2 text-sm  rounded-full  outline-none bg-white/5 text-white"
+              className="block w-full px-3 py-2 text-sm rounded-full outline-none bg-white/5 text-white"
               placeholder="Search city..."
               required
             />
 
             <button
               type="submit"
-              className="text-white absolute right-3 bottom-2.5 "
+              className="text-white absolute right-3 bottom-2.5"
             >
-              {" "}
               <svg
                 className="w-4 h-4 text-gray-500 dark:text-gray-400"
                 aria-hidden="true"
@@ -61,9 +89,10 @@ const Navbar = () => {
           </div>
         </form>
       </div>
-      <div className="  my-auto">
+      <div onClick={getFormattedLocation} className="my-auto">
         <div className="px-3 py-2 border-[1.5px] border-gray-300/15 bg-[#742bec] cursor-pointer text-white flex gap-1 items-center rounded-full">
-          <IoLocationSharp /> <p className="text-sm font-bold md:block hidden">Current Location</p>
+          <IoLocationSharp />
+          <p className="text-sm font-bold md:block hidden">Current Location</p>
         </div>
       </div>
     </div>
