@@ -2,7 +2,7 @@
 
 # Weather Application
 
-![Weather Application](https://www.imghost.net/rqrUL7czykagzyX) <!-- Replace with the actual image URL -->
+![Weather Application](https://i.postimg.cc/J076Gpyc/2024-08-26-16-27-56-Sky-Sense-1.png) <!-- Replace with the actual image URL -->
 
 ## Description
 
