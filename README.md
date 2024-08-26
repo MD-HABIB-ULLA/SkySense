@@ -1,12 +1,12 @@
 
 
-# Weather Application
+# [SkySense](https://sky-sense-chi.vercel.app/)
 
-![Weather Application](https://i.postimg.cc/J076Gpyc/2024-08-26-16-27-56-Sky-Sense-1.png) <!-- Replace with the actual image URL -->
+![SkySense](https://i.postimg.cc/J076Gpyc/2024-08-26-16-27-56-Sky-Sense-1.png) <!-- Replace with the actual image URL -->
 
 ## Description
 
-The Weather Application is a dynamic and interactive web app that provides real-time weather information. It allows users to search for weather conditions by city or use their current location to get localized weather updates. The application features a clean, user-friendly interface and offers detailed forecasts including hourly and daily predictions.
+The SkySense is a dynamic and interactive web app that provides real-time weather information. It allows users to search for weather conditions by city or use their current location to get localized weather updates. The application features a clean, user-friendly interface and offers detailed forecasts including hourly and daily predictions.
 
 ## Key Features
 
