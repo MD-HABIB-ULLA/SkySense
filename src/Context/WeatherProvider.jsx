@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export const WeatherContext = createContext(null);
 
@@ -8,6 +9,12 @@ const WeatherProvider = ({ children }) => {
   const [webLoading, setWebLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [weatherData, SetWeatherData] = useState(null);
+  const [showC, setShowC] = useState(true);
+  const [error, setError] = useState("");
+
+  if (error) {
+    toast.error(error);
+  }
 
   let location, current, forecast;
   if (weatherData) {
@@ -49,22 +56,25 @@ const WeatherProvider = ({ children }) => {
 
   useEffect(() => {
     const queryText = searchText || currentLocation;
-    if (!queryText) return; // If both are empty, don't fetch data
+    if (!queryText) return;
 
-    setLoading(true);
     fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=e5de58671d4d4f40ace112603242408&q=${queryText}&days=4`
     )
       .then((res) => res.json())
       .then((data) => {
-        SetWeatherData(data);
-        setLoading(false);
+        if (data.error) {
+          toast.error(data.error.message);  // Display the toast message
+        } else {
+          SetWeatherData(data);
+        }
+        setWebLoading(false);
       })
       .catch((err) => {
-        setLoading(false);
+        setWebLoading(false);
         console.log(err);
       });
-  }, [searchText, currentLocation]); // Fetch weather data when searchText or currentLocation changes
+  }, [searchText, currentLocation]);
   // console.log(location, current, forecast)
   console.log(weatherData);
 
@@ -77,7 +87,9 @@ const WeatherProvider = ({ children }) => {
         webLoading,
         current,
         location,
-        loading
+        loading,
+        showC,
+        setShowC,
       }}
     >
       {children}
@@ -86,3 +98,5 @@ const WeatherProvider = ({ children }) => {
 };
 
 export default WeatherProvider;
+
+
