@@ -31,7 +31,7 @@ const DaysForecast = () => {
                 className="bg-white/5 grid grid-cols-3 p-3 rounded-lg  items-center"
               >
                 {showC ? (
-                  <h1 className="text-center text-base  ">
+                  <h1 className="text-center md:text-base text-sm  ">
                     {item?.day.avgtemp_c}° C
                   </h1>
                 ) : (
