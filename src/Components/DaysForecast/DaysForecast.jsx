@@ -3,7 +3,7 @@ import { WeatherContext } from "../../Context/WeatherProvider";
 
 const DaysForecast = () => {
   const { loading, showC, forecast } = useContext(WeatherContext);
-  console.log(forecast.forecastday);
+  console.log(forecast?.forecastday);
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -31,11 +31,11 @@ const DaysForecast = () => {
                 className="bg-white/5 grid grid-cols-3 p-3 rounded-lg  items-center"
               >
                 {showC ? (
-                  <h1 className="text-center md:text-base text-xs ">
+                  <h1 className="text-center text-base  ">
                     {item?.day.avgtemp_c}° C
                   </h1>
                 ) : (
-                  <h1 className="text-center md:text-base  text-xs">
+                  <h1 className="text-center text-base  ">
                     {item?.day.avgtemp_f}° F
                   </h1>
                 )}
