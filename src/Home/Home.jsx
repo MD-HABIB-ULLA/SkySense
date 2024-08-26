@@ -12,7 +12,7 @@ const Home = () => {
 
 
   return (
-    <div className="bg-[#060c1a] min-h-screen">
+    <div className="bg-[#060c1a] min-h-screen pb-3">
       {!webLoading ? (
         <div className="max-w-7xl m-auto px-5 md:px-10 ">
           <Navbar />
