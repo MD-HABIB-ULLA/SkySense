@@ -23,12 +23,16 @@ const WeatherProvider = ({ children }) => {
 
   let queryText;
 
-  if (searchText) {
-    queryText = searchText;
-  }
-  if (currentLocation) {
-    queryText = currentLocation;
-  }
+if (currentLocation) {
+  queryText = currentLocation;
+} else if (searchText) {
+  queryText = searchText;
+} else {
+  queryText = "bangladesh";
+}
+
+console.log(queryText)
+
   useEffect(() => {
     setWebLoading(true);
 
@@ -55,9 +59,7 @@ const WeatherProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const queryText = searchText || currentLocation;
-    if (!queryText) return;
-
+    const queryText = searchText || currentLocation || "bangladesh";
     fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=e5de58671d4d4f40ace112603242408&q=${queryText}&days=4`
     )
@@ -90,6 +92,7 @@ const WeatherProvider = ({ children }) => {
         loading,
         showC,
         setShowC,
+        forecast
       }}
     >
       {children}

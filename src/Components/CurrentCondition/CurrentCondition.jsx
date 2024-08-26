@@ -1,19 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { IoLocationSharp } from "react-icons/io5";
 import { WeatherContext } from "../../Context/WeatherProvider";
 
 const CurrentCondition = () => {
-  const { showC, setShowC, loading, location, current } =
+  const { showC, setShowC, loading, location, current, forecast } =
     useContext(WeatherContext);
-  console.log(current);
+
 
   const date = new Date(location?.localtime);
 
-  // Get day of the week (e.g., Monday)
+
   const options = { weekday: "long" };
   const dayOfWeek = date.toLocaleDateString("en-US", options);
 
-  // Get formatted date (e.g., 24 Dec, 2023)
   const formattedDate = date.toLocaleDateString("en-US", {
     day: "2-digit",
     month: "short",
@@ -63,14 +62,15 @@ const CurrentCondition = () => {
                 <div className="text-sm flex gap-2">
                   High:
                   {showC ? (
-                    <h1>{current?.heatindex_c} </h1>
+                    <h1>{forecast?.forecastday[0].day.maxtemp_c} </h1>
                   ) : (
-                    <h1>{current?.heatindex_f} </h1>
+                    <h1>{forecast?.forecastday[0].day.maxtemp_f} </h1>
                   )}
-                  Low:  {showC ? (
-                    <h1>{current?.dewpoint_c} </h1>
+                  Low:{" "}
+                  {showC ? (
+                    <h1>{forecast?.forecastday[0].day.mintemp_c} </h1>
                   ) : (
-                    <h1>{current?.dewpoint_f} </h1>
+                    <h1>{forecast?.forecastday[0].day.mintemp_f} </h1>
                   )}
                 </div>
               </div>
@@ -88,18 +88,21 @@ const CurrentCondition = () => {
                   <h1 className="md:text-4xl text-2xl ">
                     {current?.condition.text}
                   </h1>
-                  <h1 className="text-sm ">Feels Like  {showC ? (
-                    <span>{current?.feelslike_c} </span>
-                  ) : (
-                    <span>{current?.feelslike_f} </span>
-                  )}</h1>
+                  <h1 className="text-sm ">
+                    Feels Like{" "}
+                    {showC ? (
+                      <span>{current?.feelslike_c} </span>
+                    ) : (
+                      <span>{current?.feelslike_f} </span>
+                    )}
+                  </h1>
                 </div>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <div className="flex items-center justify-center h-full  w-full">
+        <div className="flex items-center justify-center h-44  w-full">
           <div className="loader"></div>
         </div>
       )}
