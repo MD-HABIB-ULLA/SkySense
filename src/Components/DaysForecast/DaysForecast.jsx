@@ -45,7 +45,7 @@ const DaysForecast = () => {
              w-10"
                   alt=""
                 />
-                <h1 className="text-sm text-right">{formatDate(item.date)}</h1>
+                <h1 className="text-[10px] text-right">{formatDate(item.date)}</h1>
               </div>
             ))}
           </div>
