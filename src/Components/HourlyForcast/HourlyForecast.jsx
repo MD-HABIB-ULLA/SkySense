@@ -86,13 +86,13 @@ const HourlyForecast = () => {
                     {forecast?.forecastday[1].day.condition.text}
                   </p>
                 </div>
-                <div>
+                <div className="font-bold">
                   {showC ? (
-                    <h1 className="text-center md:text-4xl text-2xl">
+                    <h1 className="text-center md:text-4xl text-xl">
                       {forecast?.forecastday[1].day.avgtemp_c}° C
                     </h1>
                   ) : (
-                    <h1 className="text-center md:text-4xl text-2xl">
+                    <h1 className="text-center md:text-4xl text-xl">
                       {forecast?.forecastday[1].day.avgtemp_f}° F
                     </h1>
                   )}
@@ -108,7 +108,7 @@ const HourlyForecast = () => {
       flex flex-col justify-between"
           >
             <div className="space-y-1">
-              <p className="text-white/40 text-base">Sunrise</p>
+              <p className="text-white/40 md:text-base text-sm">Sunrise</p>
               <h1 className="md:text-2xl lg:text-3xl text-white">
                 {forecast?.forecastday[0].astro.sunrise.split(" ")[0]}
                 <span className="text-white/40 md:text-sm text-xs">
@@ -118,9 +118,12 @@ const HourlyForecast = () => {
               </h1>
             </div>
             <div className="space-y-1">
-              <p className="text-white/40 text-base">Sunset</p>
+              <p className="text-white/40 md:text-base text-sm">Sunset</p>
               <h1 className="md:text-2xl lg:text-3xl text-white">
-                {forecast?.forecastday[0].astro.sunset.split(" ")[0]}
+                <span className="font-bold">
+                  {" "}
+                  {forecast?.forecastday[0].astro.sunset.split(" ")[0]}
+                </span>
                 <span className="text-white/40 md:text-sm text-xs">
                   {" "}
                   {forecast?.forecastday[0].astro.sunset.split(" ")[1]}
@@ -128,9 +131,12 @@ const HourlyForecast = () => {
               </h1>
             </div>
             <div className="space-y-1">
-              <p className="text-white/40 text-base">Moonrise</p>
+              <p className="text-white/40 md:text-base text-sm">Moonrise</p>
               <h1 className="md:text-2xl lg:text-3xl text-white">
-                {forecast?.forecastday[0].astro.moonrise.split(" ")[0]}
+                <span className="font-bold">
+                  {" "}
+                  {forecast?.forecastday[0].astro.moonrise.split(" ")[0]}
+                </span>
                 <span className="text-white/40 md:text-sm text-xs">
                   {" "}
                   {forecast?.forecastday[0].astro.moonrise.split(" ")[1]}
