@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="bg-[#060c1a] min-h-screen pb-3">
       {!webLoading ? (
-        <div className="max-w-7xl m-auto px-5 md:px-10 ">
+        <div className="max-w-7xl m-auto px-2 md:px-10 ">
           <Navbar />
           <div className="mt-4">
             <div className="grid lg:grid-cols-7 grid-cols-1 gap-5">

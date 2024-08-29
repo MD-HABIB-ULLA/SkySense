@@ -75,7 +75,7 @@ const CurrentCondition = () => {
                 </div>
               </div>
             </div>
-            <div className="flex  justify-center  flex-1 w-full  ">
+            <div className="flex  justify-center   flex-1 w-full  ">
               <img
                 className=""
                 src={current?.condition.icon.replace("64x64", "128x128")}

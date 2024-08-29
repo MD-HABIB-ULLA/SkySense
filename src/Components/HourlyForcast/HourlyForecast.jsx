@@ -44,11 +44,11 @@ const HourlyForecast = () => {
   console.log(forecast?.forecastday[1].day.condition.text);
 
   return (
-    <div className="bg-white/5 rounded-3xl md:p-5 p-3">
+    <div className="bg-white/5 rounded-3xl md:p-5 p-2">
       {!loading ? (
-        <div className="grid grid-cols-4 md:gap-5 gap-3">
-          <div className="col-span-3 space-y-3">
-            <div className="space-y-3">
+        <div className="grid grid-cols-4 md:gap-5 gap-2">
+          <div className="col-span-3 space-y-2">
+            <div className="space-y-2">
               <div className="text-2xl ">
                 <p className="text-white">Hourly Forecast</p>
               </div>
@@ -57,19 +57,19 @@ const HourlyForecast = () => {
                   {futureData?.map((item, i) => (
                     <div
                       key={i}
-                      className="text-white flex flex-col justify-between gap-3 bg-white/5 p-2 rounded-lg"
+                      className="text-white flex flex-col justify-between gap-1 bg-white/5 p-1 rounded-lg"
                     >
                       {" "}
-                      <p className="text-center md:text-base text-xs">
+                      <p className="text-center md:text-base text-[10px]">
                         {formatTo12Hour(item.time)}
                       </p>
                       <img src={item.condition.icon} alt="" />
                       {showC ? (
-                        <h1 className="text-center md:text-base text-xs">
+                        <h1 className="text-center md:text-base text-[10px]">
                           {item?.temp_c}° C
                         </h1>
                       ) : (
-                        <h1 className="text-center md:text-base text-xs">
+                        <h1 className="text-center md:text-base text-[10px]">
                           {item?.temp_f}° F
                         </h1>
                       )}
@@ -79,20 +79,20 @@ const HourlyForecast = () => {
               </div>
             </div>
             <div className="bg-gradient-to-tr  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] p-3 text-white rounded-2xl flex justify-between">
-              <div className="flex gap-3 items-center">
+              <div className="flex gap-2 items-center">
                 <div>
                   <p>Tomorrow</p>
-                  <p className="text-white/40 text-sm">
+                  <p className="text-white/40 text-[8px]">
                     {forecast?.forecastday[1].day.condition.text}
                   </p>
                 </div>
                 <div>
                   {showC ? (
-                    <h1 className="text-center text-4xl">
+                    <h1 className="text-center md:text-4xl text-2xl">
                       {forecast?.forecastday[1].day.avgtemp_c}° C
                     </h1>
                   ) : (
-                    <h1 className="text-center text-4xl">
+                    <h1 className="text-center md:text-4xl text-2xl">
                       {forecast?.forecastday[1].day.avgtemp_f}° F
                     </h1>
                   )}
@@ -104,7 +104,7 @@ const HourlyForecast = () => {
             </div>
           </div>
           <div
-            className="bg-gradient-to-t  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] p-3 text-white rounded-2xl 
+            className="bg-gradient-to-t  from-[#0E1421] via-[#1d325f4c] to-[#0E1421] px-2 py-3 text-white rounded-2xl 
       flex flex-col justify-between"
           >
             <div className="space-y-1">
