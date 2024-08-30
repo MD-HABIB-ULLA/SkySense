@@ -61,7 +61,7 @@ console.log(queryText)
   useEffect(() => {
     const queryText = searchText || currentLocation || "bangladesh";
     fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=e5de58671d4d4f40ace112603242408&q=${queryText}&days=4`
+      `https://api.weatherapi.com/v1/forecast.json?key=2de094add3944220a1a22217243008&q=${queryText}&days=4`
     )
       .then((res) => res.json())
       .then((data) => {
